@@ -6,6 +6,20 @@ function postCards(){  // пишем функцию для создания по
 let inTitle = document.getElementById("inTitle").value; //  Находим первый инпут и его значение
 let inBody = document.getElementById("inBody").value; // Находим второй инпут и его значени
 
+
+
+if(inTitle!=="" || inBody !==""){ // если хотя бы один инпут не пустой, то пост публикуется
+
+  let divPost =document.createElement("div");// создаем див и у него разметку
+  divPost.innerHTML=
+  `
+  <p> Заголовок : ${inTitle}</p>
+       <p> Статья : ${inBody}</p>
+  `
+  post.appendChild(divPost);
+
+
+}
 fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     body: JSON.stringify({
@@ -21,20 +35,10 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
   .then(json => 
     {  
 
-    if(inTitle!=="" || inBody !==""){ // если хотя бы один инпут не пустой, то пост публикуется
-
-        let divPost =document.createElement("div");// создаем див и у него разметку
-        divPost.innerHTML=
-        `
-        <p> Заголовок : ${inTitle}</p>
-             <p> Статья : ${inBody}</p>
-        `
-        post.appendChild(divPost);
-console.log(json);
-
-  }
+   
+  console.log(json);
        
     })
 
 }
-button.addEventListener('click' , postCards());
+button.addEventListener('click' ,postCards);
