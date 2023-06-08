@@ -7,7 +7,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
             console.log(element.title)
 
             let div = document.createElement("div");// создаем элемент
-            div.classList.add ="div-cards";// добавляем ему класс
+            div.classList.add("div-cards");// добавляем ему класс
             div.innerHTML=
             `<p> Заголовок : ${element.title}</p>
              <p> Статья : ${element.body}</p>
@@ -17,8 +17,9 @@ fetch('https://jsonplaceholder.typicode.com/posts')
             
         })
         .catch((error)=>{
+
      let divError =document.querySelector("div");
-     divError.innerHTML=`<p>Произошла ошибка</p>`
+     divError.innerHTML=`<p>Произошла ошибка +${error}</p>`
      container.appendChild(divError);
 
         })
